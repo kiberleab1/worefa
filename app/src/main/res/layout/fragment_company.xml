@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.khhhm.worefa.data.entitys.Company"/>
+        <variable name="companyItem" type="com.khhhm.worefa.data.entitys.Company"/>
+    </data>
+<RelativeLayout
+
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+    <TextView
+            android:id="@+id/tvIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+
+            android:gravity="center"
+            android:text="@{companyItem.name.substring(0,1)}"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    <TextView
+            android:id="@+id/tvEmailSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/tvIcon"
+            android:layout_toRightOf="@+id/tvIcon"
+            android:text="@{companyItem.name}"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+    <TextView
+            android:id="@+id/tvEmailDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvEmailSender"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/tvIcon"
+            android:layout_toRightOf="@+id/tvIcon"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{companyItem.address}" />
+
+
+</RelativeLayout>
+</layout>
+    <!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <TextView
+            android:id="@+id/item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceListItem"/>
+
+    <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:textAppearance="?attr/textAppearanceListItem"/>
+
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:id="@+id/item_number"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/cardview_dark_background"
+                android:gravity="center"
+                android:text="@string/a"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+        <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+
+
+                android:text="@string/textview"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        <TextView
+                android:id="@+id/tvEmailDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+
+
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/this_is_a_very_long_text_and_we_need_to_show_3_dots" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+-->
