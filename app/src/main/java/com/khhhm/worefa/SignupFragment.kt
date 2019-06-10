@@ -11,7 +11,7 @@ import com.khhhm.worefa.data.entitys.User
 import com.khhhm.worefa.viewmodels.UserViewModel
 import com.khhhm.worefa.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
+class SignupFragment : Fragment() {
   //  private lateinit var  binding;
     private lateinit var userViewModel: UserViewModel
 

@@ -20,4 +20,8 @@ interface ServicesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertService(services: Services)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllService(services: List<Services>)
+
 }
