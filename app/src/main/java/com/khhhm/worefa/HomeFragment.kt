@@ -33,10 +33,10 @@ class HomeFragment : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view=inflater.inflate(R.layout.fragment_home,container,false)
-        val fragmentManager=super.getFragmentManager()
-        if(fragmentManager!=null) {
-            view.main_view_pager.adapter = MainViewPagerAdapter(fragmentManager,this.context)
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val fragmentManager = super.getFragmentManager()
+        if (fragmentManager != null) {
+            view.main_view_pager.adapter = MainViewPagerAdapter(fragmentManager, this.context)
             view.home_tab_menu.setupWithViewPager(view.main_view_pager)
         }
 
