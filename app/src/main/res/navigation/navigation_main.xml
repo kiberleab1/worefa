@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_main"
+            app:startDestination="@id/signupFragment2">
+    <fragment android:id="@+id/signupFragment2" android:name="com.khhhm.worefa.SignupFragment"
+              android:label="SignupFragment">
+        <action android:id="@+id/action_signupFragment2_to_homeFragment3" app:destination="@id/homeFragment3"/>
+    </fragment>
+    <fragment android:id="@+id/homeFragment3" android:name="com.khhhm.worefa.HomeFragment"
+              android:label="HomeFragment">
+        <action android:id="@+id/action_homeFragment3_to_infoDeskFragment2" app:destination="@id/infoDeskFragment2"/>
+        <action android:id="@+id/action_homeFragment3_self" app:destination="@id/homeFragment3"/>
+        <action android:id="@+id/action_homeFragment3_to_newsFeedFragment" app:destination="@id/newsFeedFragment"/>
+    </fragment>
+    <fragment android:id="@+id/infoDeskFragment2" android:name="com.khhhm.worefa.InfoDeskFragment"
+              android:label="fragment_info_desk" tools:layout="@layout/fragment_info_desk"/>
+    <fragment android:id="@+id/newsFeedFragment" android:name="com.khhhm.worefa.NewsFeedFragment"
+              android:label="fragment_news_feed" tools:layout="@layout/fragment_news_feed"/>
+</navigation>

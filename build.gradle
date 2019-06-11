@@ -14,7 +14,14 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.1.0-alpha05"
+    }
+}
 allprojects {
     repositories {
         google()
