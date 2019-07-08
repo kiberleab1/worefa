@@ -1,5 +1,6 @@
 package com.khhhm.worefa.data.repository
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.khhhm.worefa.data.dao.CompanyDao
@@ -7,37 +8,43 @@ import com.khhhm.worefa.data.entitys.Company
 import com.khhhm.worefa.data.network.CompanyApiService
 import com.khhhm.worefa.utilites.isNetworkConnected
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.Dispatcher
 
-class CompanyRepository private constructor(private val companyDao: CompanyDao,private val companyApiService: CompanyApiService){
+class CompanyRepository private constructor(private val companyDao: CompanyDao,private val companyApiService: CompanyApiService) {
 
 
-    fun getAllCompany()=this.companyDao.getAllCompanys()
+    fun getAllCompanyFromDao():LiveData<List<Company>> {
 
-    fun getCompany(id:Long):LiveData<Company>{
-        GlobalScope.launch (Dispatchers.IO){
-          ///  val company=companyApiService.getCompany(id).await().body();
-         //   if(company!=null){
-            val company=Company(4,"ghghghgh","dfdf","5")
-            companyDao.insertAll(company)
-            val companys=companyDao.getCompany(5).value
-            if(company!=null){
-            Log.i("comany From Sqlite",companys?.name+"")
-            }else{
-            Log.i("Company From Sqlite","Is null")
-        }
-        }
 
-        return companyDao.getCompany(5)
+        return this.companyDao.getAllCompanys();
     }
-    fun getCompaysFromApi(){}
-    fun reloadCompanys(){
-        GlobalScope.launch (Dispatchers.IO) {
-            val companys =companyApiService.getAllCompany().await().body()
+    suspend fun getAllFromApi(){
+    withContext(IO){
+        val companys=companyApiService.getAllCompany().await().body()
+        if(companys!=null)
+        companyDao.insertAll(companys )
+        }
+    }
+    suspend fun insertCompany(company: Company){
+        withContext(IO) {
+            companyApiService.postCompany(company);
+        }
+    }
+    suspend fun deleteCompany(company: Company){
+        withContext(IO) {
+            if(companyApiService.deleteCompany(company.Id).await().isSuccessful){
+                companyDao.deleteCompany(company)
+            }
+        }
+    }
+    suspend fun updateCompany(company: Company){
+        withContext(IO) {
 
-            companyDao.getAllCompanys()
+            companyApiService.updateComppany(company);
         }
     }
 
