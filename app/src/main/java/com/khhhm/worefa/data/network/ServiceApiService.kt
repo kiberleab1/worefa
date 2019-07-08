@@ -10,17 +10,24 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ServiceApiService {
-    @GET("app/services")
+    @GET("Services")
     fun getServicesByCompId(@Query("comp" )compId:Long): Deferred<Response<List<Services>>>
 
     @GET("serviceses/{id}")
     fun getSingleByServiceId(id:Long):Deferred<Response<Services>>
 
+
+    @POST("Services")
+    fun postService(@Body services: Services):Deferred<Response<Services>>
+
+    @PUT("app/services")
+    fun updateService(@Body services: Services):Deferred<Response<Services>>
+
+    @DELETE("app/services")
+    fun deleteService(@Body services: Services):Deferred<Response<Void>>
 
 
     companion object {
