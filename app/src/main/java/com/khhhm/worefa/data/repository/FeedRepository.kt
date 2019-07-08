@@ -1,7 +1,7 @@
 package com.khhhm.worefa.data.repository
 
 import com.khhhm.worefa.data.dao.FeedDao
-import com.khhhm.worefa.data.entitys.Feed
+import com.khhhm.worefa.data.entitys.chat
 import com.khhhm.worefa.data.network.FeedApiService
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
@@ -13,19 +13,19 @@ class FeedRepository private constructor(private val feedDao: FeedDao,private va
     fun getFeed(id:Long)=this.feedDao.getFeed(id);
 
 
-    suspend fun insertFeed(feed: Feed){
+    suspend fun insertFeed(chat: chat){
         withContext(IO){
-            feedDao.insertFeed(feed);
+            feedDao.insertFeed(chat);
         }
     }
-    suspend fun deleteFeed(feed: Feed){
+    suspend fun deleteFeed(chat: chat){
         withContext(IO){
-            feedDao.deleteFeed(feed);
+            feedDao.deleteFeed(chat);
         }
     }
-    suspend fun updateFeed(feed: Feed){
+    suspend fun updateFeed(chat: chat){
         withContext(IO){
-            feedDao.updateFeed(feed);
+            feedDao.updateFeed(chat);
         }
     }
 

@@ -1,8 +1,7 @@
 package com.khhhm.worefa.data.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.khhhm.worefa.data.entitys.Appointment
-import com.khhhm.worefa.data.entitys.Feed
+import com.khhhm.worefa.data.entitys.chat
 import com.khhhm.worefa.utilites.BASEURL
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
@@ -16,10 +15,10 @@ import retrofit2.http.Path
 interface FeedApiService {
 
     @GET("feeds/{companyId}")
-    fun getAllByCompanyId(@Path ("companyId") companyId:Long):Deferred<retrofit2.Response<List<Feed>>>
+    fun getAllByCompanyId(@Path ("companyId") companyId:Long):Deferred<retrofit2.Response<List<chat>>>
 
     @POST(value = "feeds")
-    fun postFeed(feed: Feed)
+    fun postFeed(chat: chat)
 
 
     companion object {
