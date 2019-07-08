@@ -14,21 +14,21 @@ import retrofit2.http.*
 
 interface AppointmentApiService {
 
-    @GET("appointments/{id}")
+    @GET("appoint/{id}")
     fun getSingleFindById(@Path("id" )id:Long): Deferred<Response<Appointment>>
 
 
-    @GET("app/user")
-    fun getMyAppointments(@Query("user") userEmail:String):Deferred<Response<List<Appointment>>>
+    @GET("appoint/user")
+    fun getMyAppointments(@Query("user")user: String):Deferred<Response<List<Appointment>>>
 
-    @POST("appointments")
-    fun postAppointments(@Body newAppointment: Appointment):Deferred<Response<Void>>
+    @POST("appoint")
+    fun postAppointments(@Body newAppointment: Appointment):Deferred<Response<Appointment>>
 
-    @PUT("appointments/{id}")
-    fun updateAppointments(@Path("id") id:Long):Deferred<Response<Void>>
+    @PUT("appoint")
+    fun updateAppointments(@Body appointment: Appointment):Deferred<Response<Appointment>>
 
-    @DELETE("appointments/{id}")
-    fun deleteAppointments(@Path("id") id:Long):Deferred<Response<Void>>
+    @DELETE("appoint")
+    fun deleteAppointments(@Query("id") id:Int):Deferred<Response<Void>>
 
     companion object {
 

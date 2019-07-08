@@ -16,7 +16,7 @@ interface AppointmentDao {
     fun insertAppointment(appointment: Appointment)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(appointment: List<Appointment>)
+    fun insertAll(appointment: List<Appointment>)
 
     @Delete
     fun deleteAppointment(appointment: Appointment)
