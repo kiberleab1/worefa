@@ -4,6 +4,9 @@
          xmlns:tools="http://schemas.android.com/tools"
 >
 <data>
+    <variable name="click" type="android.view.View.OnClickListener"/>
+
+    <variable name="onLongClick" type="android.view.View.OnLongClickListener"/>
     <import type="com.khhhm.worefa.data.entitys.Appointment"/>
     <variable name="appointment" type="com.khhhm.worefa.data.entitys.Appointment"/>
     <import type="com.khhhm.worefa.data.entitys.Company"/>
@@ -14,6 +17,9 @@
             android:id="@+id/layoutas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{click}"
+            android:onLongClick="@{onLongClick}"
+            android:background="?android:attr/selectableItemBackground"
             android:padding="10dp">
 
         <TextView
@@ -23,9 +29,9 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:background="@drawable/round_drawable"
-                android:text="@{company.name}"
+                android:text="@{appointment.user}"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"/>
         <!--   android:background="@drawable/rounded_drawable"-->
         <TextView
                 android:id="@+id/tvEmailSender"
@@ -35,9 +41,9 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/tvIcon"
                 android:layout_toRightOf="@+id/tvIcon"
-                android:text="@{Services.name}"
+                android:text="@{appointment.user}"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
 
         <TextView
@@ -52,7 +58,7 @@
                 android:layout_toRightOf="@+id/tvIcon"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{company.name}" />
+                android:text="@{appointment.user}"/>
 
 
     </RelativeLayout>
